@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <data>
+        <variable
+            name="image"
+            type="com.example.mvvmdemo.kotlinbean.ImageJsonBean.Image" />
+        
+        <variable
+            name="clicker"
+            type="com.example.mvvmdemo.MainActivity.Clicker" />
+        
+        <variable
+            name="uiChange"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv"
+            url="@{image.BASE_IMAGE_ADDRESS_URL + image.url}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:text="@{image.copyright}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btn_pre"
+            android:onClick="@{clicker.onClick}"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="上一张"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv"
+            android:layout_marginTop="20dp"
+            app:layout_constraintWidth_percent="0.5"/>
+
+        <Button
+            android:id="@+id/btn"
+            android:onClick="@{clicker.onClick}"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="加载"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_pre"
+            android:layout_marginTop="20dp"
+            app:layout_constraintWidth_percent="0.5"/>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:onClick="@{clicker.onClick}"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="下一张"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn"
+            android:layout_marginTop="20dp"
+            app:layout_constraintWidth_percent="0.5"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
